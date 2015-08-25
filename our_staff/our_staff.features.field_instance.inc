@@ -1,18 +1,18 @@
 <?php
 /**
  * @file
- * our_team.features.field_instance.inc
+ * our_staff.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function our_team_field_default_field_instances() {
+function our_staff_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-team_member-body'
-  $field_instances['node-team_member-body'] = array(
-    'bundle' => 'team_member',
+  // Exported field_instance: 'comment-comment_node_team_member-comment_body'
+  $field_instances['comment-comment_node_team_member-comment_body'] = array(
+    'bundle' => 'comment_node_team_member',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -27,6 +27,44 @@ function our_team_field_default_field_instances() {
         ),
         'type' => 'text_default',
         'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'comment',
+    'field_name' => 'comment_body',
+    'label' => 'Comment',
+    'required' => TRUE,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'node-team_member-body'
+  $field_instances['node-team_member-body'] = array(
+    'bundle' => 'team_member',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'edit' => array(
+            'editor' => 'form',
+          ),
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -58,7 +96,7 @@ function our_team_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 31,
+      'weight' => 4,
     ),
   );
 
@@ -70,7 +108,7 @@ function our_team_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
           'edit' => array(
@@ -107,7 +145,51 @@ function our_team_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 34,
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-team_member-field_extended_bio'
+  $field_instances['node-team_member-field_extended_bio'] = array(
+    'bundle' => 'team_member',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'edit' => array(
+            'editor' => 'plain_text',
+          ),
+        ),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_extended_bio',
+    'label' => 'Extended Bio',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 5,
     ),
   );
 
@@ -119,15 +201,15 @@ function our_team_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'text',
+        'label' => 'hidden',
+        'module' => 'custom_formatters',
         'settings' => array(
           'edit' => array(
-            'editor' => 'plain_text',
+            'editor' => 'form',
           ),
         ),
-        'type' => 'text_default',
-        'weight' => 7,
+        'type' => 'custom_formatters_social_links',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -156,7 +238,7 @@ function our_team_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 39,
+      'weight' => 12,
     ),
   );
 
@@ -167,17 +249,17 @@ function our_team_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'edit' => array(
             'editor' => 'form',
           ),
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'team_member',
         ),
         'type' => 'image',
-        'weight' => 5,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -186,7 +268,7 @@ function our_team_field_default_field_instances() {
           'edit' => array(
             'editor' => 'form',
           ),
-          'image_link' => '',
+          'image_link' => 'content',
           'image_style' => 'team_member',
         ),
         'type' => 'image',
@@ -237,7 +319,7 @@ function our_team_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 37,
+      'weight' => 10,
     ),
   );
 
@@ -249,15 +331,15 @@ function our_team_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'text',
+        'label' => 'hidden',
+        'module' => 'custom_formatters',
         'settings' => array(
           'edit' => array(
-            'editor' => 'plain_text',
+            'editor' => 'form',
           ),
         ),
-        'type' => 'text_default',
-        'weight' => 9,
+        'type' => 'custom_formatters_instagram_link',
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -286,7 +368,7 @@ function our_team_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 41,
+      'weight' => 14,
     ),
   );
 
@@ -298,15 +380,15 @@ function our_team_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'text',
+        'label' => 'hidden',
+        'module' => 'custom_formatters',
         'settings' => array(
           'edit' => array(
             'editor' => 'plain_text',
           ),
         ),
-        'type' => 'text_default',
-        'weight' => 2,
+        'type' => 'custom_formatters_job_title',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -335,7 +417,7 @@ function our_team_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 33,
+      'weight' => 7,
     ),
   );
 
@@ -347,15 +429,15 @@ function our_team_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'text',
+        'label' => 'hidden',
+        'module' => 'custom_formatters',
         'settings' => array(
           'edit' => array(
-            'editor' => 'plain_text',
+            'editor' => 'form',
           ),
         ),
-        'type' => 'text_default',
-        'weight' => 10,
+        'type' => 'custom_formatters_linked_in_link',
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -384,7 +466,7 @@ function our_team_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 42,
+      'weight' => 15,
     ),
   );
 
@@ -396,15 +478,10 @@ function our_team_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'edit' => array(
-            'editor' => 'plain_text',
-          ),
-        ),
-        'type' => 'text_default',
-        'weight' => 1,
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -433,7 +510,7 @@ function our_team_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 32,
+      'weight' => 6,
     ),
   );
 
@@ -445,7 +522,7 @@ function our_team_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
           'edit' => array(
@@ -453,7 +530,7 @@ function our_team_field_default_field_instances() {
           ),
         ),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -482,7 +559,7 @@ function our_team_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 35,
+      'weight' => 9,
     ),
   );
 
@@ -494,15 +571,15 @@ function our_team_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'text',
+        'label' => 'hidden',
+        'module' => 'custom_formatters',
         'settings' => array(
           'edit' => array(
-            'editor' => 'plain_text',
+            'editor' => 'form',
           ),
         ),
-        'type' => 'text_default',
-        'weight' => 6,
+        'type' => 'custom_formatters_twitter_links',
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -531,7 +608,7 @@ function our_team_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 38,
+      'weight' => 11,
     ),
   );
 
@@ -543,15 +620,15 @@ function our_team_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'text',
+        'label' => 'hidden',
+        'module' => 'custom_formatters',
         'settings' => array(
           'edit' => array(
-            'editor' => 'plain_text',
+            'editor' => 'form',
           ),
         ),
-        'type' => 'text_default',
-        'weight' => 8,
+        'type' => 'custom_formatters_youtube_link',
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -580,14 +657,16 @@ function our_team_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 40,
+      'weight' => 13,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Bio');
+  t('Comment');
   t('E-mail');
+  t('Extended Bio');
   t('Facebook');
   t('Image');
   t('Instagram');

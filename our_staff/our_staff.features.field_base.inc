@@ -1,24 +1,24 @@
 <?php
 /**
  * @file
- * our_team.features.field_base.inc
+ * our_staff.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function our_team_field_default_field_bases() {
+function our_staff_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'
-  $field_bases['body'] = array(
+  // Exported field_base: 'comment_body'
+  $field_bases['comment_body'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(
-      0 => 'node',
+      0 => 'comment',
     ),
-    'field_name' => 'body',
+    'field_name' => 'comment_body',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -36,16 +36,16 @@ function our_team_field_default_field_bases() {
     'module' => 'text',
     'settings' => array(),
     'translatable' => 0,
-    'type' => 'text_with_summary',
+    'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_e_mail'
-  $field_bases['field_e_mail'] = array(
+  // Exported field_base: 'field_extended_bio'
+  $field_bases['field_extended_bio'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_e_mail',
+    'field_name' => 'field_extended_bio',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -61,11 +61,9 @@ function our_team_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
+    'settings' => array(),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_facebook'
@@ -97,36 +95,6 @@ function our_team_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_image'
-  $field_bases['field_image'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_image',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'image',
-    'settings' => array(
-      'default_image' => 0,
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 1,
-    'type' => 'image',
-  );
-
   // Exported field_base: 'field_instagram'
   $field_bases['field_instagram'] = array(
     'active' => 1,
@@ -156,35 +124,6 @@ function our_team_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_job_title'
-  $field_bases['field_job_title'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_job_title',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
   // Exported field_base: 'field_linked_in'
   $field_bases['field_linked_in'] = array(
     'active' => 1,
@@ -192,64 +131,6 @@ function our_team_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_linked_in',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
-  // Exported field_base: 'field_name'
-  $field_bases['field_name'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_name',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
-  // Exported field_base: 'field_phone_number'
-  $field_bases['field_phone_number'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_phone_number',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(

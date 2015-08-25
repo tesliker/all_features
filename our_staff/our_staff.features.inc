@@ -1,20 +1,29 @@
 <?php
 /**
  * @file
- * our_team.features.inc
+ * our_staff.features.inc
  */
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function our_staff_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "ds" && $api == "ds") {
+    return array("version" => "1");
+  }
+}
 
 /**
  * Implements hook_views_api().
  */
-function our_team_views_api($module = NULL, $api = NULL) {
+function our_staff_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
 /**
  * Implements hook_image_default_styles().
  */
-function our_team_image_default_styles() {
+function our_staff_image_default_styles() {
   $styles = array();
 
   // Exported image style: team_member.
@@ -64,7 +73,7 @@ function our_team_image_default_styles() {
 /**
  * Implements hook_node_info().
  */
-function our_team_node_info() {
+function our_staff_node_info() {
   $items = array(
     'team_member' => array(
       'name' => t('Team Member'),

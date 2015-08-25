@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Our Team feature.
- */
-
-include_once 'our_team.features.inc';
